@@ -13,6 +13,9 @@ import DetailView from './pages/details/DeatilView';
 
 import Update from './pages/create/Update';
 
+
+import About from './pages/about/About';
+import Contact from './pages/contact/contact';
 // PrivateRoute to protect authenticated routes
 const PrivateRoute = ({ isAuthenticated }) => {
   return isAuthenticated ?<> <Header /> <Outlet /></>    : <Navigate replace to="/login" />;
@@ -42,6 +45,12 @@ function App() {
 
           <Route path='/update/:id' element={<PrivateRoute isAuthenticated={isAuthenticated} />}>
             <Route path="/update/:id" element={<Update />} />
+          </Route>
+          <Route path='/about' element={<PrivateRoute isAuthenticated={isAuthenticated} />}>
+            <Route path="/about" element={<About />} />
+          </Route>
+          <Route path='/contact' element={<PrivateRoute isAuthenticated={isAuthenticated} />}>
+            <Route path="/contact" element={<Contact />} />
           </Route>
 
 
